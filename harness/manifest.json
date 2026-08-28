@@ -1,0 +1,85 @@
+{
+  "protocol_version": "0.1",
+  "skill": {
+    "id": "hermes-skill-claude-design",
+    "display_name": "Claude Design",
+    "description": "Design one-off HTML artifacts such as landing pages, decks, and prototypes."
+  },
+  "task_profile": {
+    "category": "creative",
+    "architecture": "canvas",
+    "artifact": "canvas",
+    "inputs": [
+      "Design brief",
+      "Content hierarchy"
+    ],
+    "outputs": [
+      "One-off artifact",
+      "Hero section",
+      "Feature cards",
+      "Mobile nav",
+      "CTA state"
+    ]
+  },
+  "modules": {
+    "memory": {
+      "strategy": "artifact_revision_history",
+      "responsibility": "Retain design brief plus decisions, observations, and verification evidence needed to resume safely."
+    },
+    "planning": {
+      "strategy": "iterative_composition_plan",
+      "responsibility": "Transform content hierarchy into the ordered, bounded stages defined by this skill."
+    },
+    "action": {
+      "strategy": "brief_generate_render_inspect_export",
+      "responsibility": "Advance the workflow through html and css composition while preserving stop conditions and user authority."
+    },
+    "capability": {
+      "strategy": "task_conditioned_minimum_capability_set",
+      "responsibility": "Expose only the production and rendering capabilities needed for the requested artifact and format."
+    }
+  },
+  "execution": {
+    "stages": [
+      "Translate intent into visual hierarchy",
+      "Choose typography color and spacing",
+      "Build the semantic HTML structure",
+      "Add responsive layout and interaction",
+      "Render desktop and mobile previews",
+      "Deliver the self-contained artifact"
+    ],
+    "gates": [
+      "scope_and_authority_confirmed",
+      "capability_and_dependency_preflight",
+      "consequential_action_previewed_when_applicable",
+      "output_reopened_and_verified"
+    ]
+  },
+  "verification": {
+    "evidence": [
+      "Hero section",
+      "Feature cards",
+      "Mobile nav",
+      "CTA state"
+    ],
+    "metrics": [
+      "task_success",
+      "verification_pass_rate",
+      "tool_error_rate",
+      "repair_count",
+      "latency_ms",
+      "estimated_cost_usd"
+    ]
+  },
+  "failure_policy": {
+    "max_repairs": 2,
+    "schema_error": "repair_then_stop",
+    "permission_error": "stop_without_retry",
+    "verification_failure": "report_incomplete"
+  },
+  "maturity": {
+    "level": "executable_contract",
+    "runtime_scope": "validation_and_dry_run_planning",
+    "claim_boundary": "This repository validates and plans the harness contract; it does not claim live service execution or benchmark gains without a connected adapter and measured evidence."
+  }
+}
